@@ -51,3 +51,7 @@ Temporary Items
 *.class
 *.prefs
 .settings/
+.metadata/
+target/
+*.classpath
+*.project
