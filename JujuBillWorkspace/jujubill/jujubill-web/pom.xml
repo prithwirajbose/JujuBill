@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.jujuapps</groupId>
+		<artifactId>jujubill</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>jujubill-web</artifactId>
+	<packaging>war</packaging>
+	<name>JujuBill - web</name>
+	<description>Web Module of JujuBill Application Suite</description>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.jujuapps</groupId>
+			<artifactId>jujubill-core</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<finalName>JujuBillWeb</finalName>
+		<pluginManagement>
+			<plugins>
+			<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>2.4.1</version>
+					<configuration>
+						<filesets>
+							<fileset>
+								<directory>${local.deployment.path}</directory>
+								<includes>
+									<include>**/*</include>
+								</includes>
+								<followSymlinks>false</followSymlinks>
+							</fileset>
+						</filesets>
+					</configuration>
+				</plugin>
+				<plugin><!-- don't pack the war -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<configuration>
+						<webappDirectory>${local.deployment.path}</webappDirectory>
+					</configuration>
+					<executions>
+						<execution>
+							<id>war-exploded</id>
+							<phase>package</phase>
+							<goals>
+								<goal>exploded</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
