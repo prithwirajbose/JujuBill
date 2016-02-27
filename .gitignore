@@ -53,5 +53,7 @@ Temporary Items
 .settings/
 .metadata/
 target/
+deployment/
 *.classpath
 *.project
+JujuBillWorkspace/jujubill/jujubill-core/target/
